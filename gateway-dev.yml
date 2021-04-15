@@ -1,0 +1,25 @@
+server:
+  port: 8000
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: online-exam-service-question
+          uri: lb://online-exam-service-question
+          predicates:
+            - Path=/question/**
+        - id: online-exam-service-examination
+          uri: lb://online-exam-service-examination
+          predicates:
+            - Path=/examination/**
+        - id: online-exam-service-user
+          uri: lb://online-exam-service-user
+          predicates:
+            - Path=/user/**
+        - id: online-exam-service-institution
+          uri: lb://online-exam-service-institution
+          predicates:
+            - Path=/institution/**
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

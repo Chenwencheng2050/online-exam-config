@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: Oath2ServerHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+# Logger Config
+logging:
+  level:
+    com.gxkord.oauth2.server.mapper: debug

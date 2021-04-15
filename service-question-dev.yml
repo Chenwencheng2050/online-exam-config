@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: ServiceQuestionHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+# Logger Config
+logging:
+  level:
+    com.gxkord.service.question.mapper: debug
+
+security:
+  oauth2:
+    client:
+      client-id: exam
+      client-secret: exam
+      access-token-uri: http://47.100.224.150:8001/oauth/token
+      user-authorization-uri: http://47.100.224.150:8001/oauth/authorize
+    resource:
+      token-info-uri: http://47.100.224.150:8001/oauth/check_token
